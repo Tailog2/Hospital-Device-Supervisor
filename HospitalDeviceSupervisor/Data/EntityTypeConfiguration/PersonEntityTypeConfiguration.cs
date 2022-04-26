@@ -12,7 +12,7 @@ public class PersonEntityTypeConfiguration : IEntityTypeConfiguration<Person>
 
         modelBuilder.Property(p => p.FirstName).HasMaxLength(50);
 
-        modelBuilder.Property(p => p.LustName).HasMaxLength(50);
+        modelBuilder.Property(p => p.LastName).HasMaxLength(50);
 
         modelBuilder.Property(p => p.PatronymicName).HasMaxLength(50);
 

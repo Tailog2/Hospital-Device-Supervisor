@@ -11,7 +11,7 @@ public class Person
 
     public string FirstName { get; set; } = null!;
 
-    public string? LustName { get; set; }
+    public string? LastName { get; set; }
 
     public string? PatronymicName { get; set; }
 

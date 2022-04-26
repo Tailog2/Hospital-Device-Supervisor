@@ -31,13 +31,13 @@ namespace HospitalDeviceSupervisor.Data
         }
 
         public DbSet<Equipment> Equipment { get; set; } = null!;
-        public DbSet<Building> Building { get; set; } = null!;
+        public DbSet<Building> Buildings { get; set; } = null!;
         public DbSet<Department> Departments { get; set; } = null!;
         public DbSet<EquipmentState> EquipmentStates { get; set; } = null!;
         public DbSet<EquipmentType> EquipmentTypes { get; set; } = null!;
         public DbSet<Location> Locations { get; set; } = null!;
         public DbSet<ObtainingType> ObtainingTypes { get; set; } = null!;
-        public DbSet<Person> Persons { get; set; } = null!;
+        public DbSet<Person> People { get; set; } = null!;
         public DbSet<Position> Positions { get; set; } = null!;
         public DbSet<Room> Rooms { get; set; } = null!;
         public DbSet<ServiceCompany> ServiceCompanies { get; set; } = null!;

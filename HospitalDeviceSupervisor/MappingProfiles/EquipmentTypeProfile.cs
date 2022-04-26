@@ -9,6 +9,7 @@ public class EquipmentTypeProfile : Profile
     public EquipmentTypeProfile()
     {
         CreateMap<EquipmentType, EquipmentTypeDto>();
-        CreateMap<EquipmentTypeDto, EquipmentType>();
+        CreateMap<EquipmentTypeDto, EquipmentType>()
+            .ForMember(c => c.Id, opt => opt.Ignore()); ;
     }
 }

@@ -1,4 +1,6 @@
-﻿using HospitalDeviceSupervisor.Dtos;
+﻿using AutoMapper;
+using HospitalDeviceSupervisor.Data;
+using HospitalDeviceSupervisor.Dtos;
 using HospitalDeviceSupervisor.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +11,15 @@ namespace HospitalDeviceSupervisor.Controllers
     [ApiController]
     public class EquipmentController : ControllerBase
     {
+        private readonly ApplicationDbContext _dbContext;
+        private readonly IMapper _mapper;
+
+        public EquipmentController(ApplicationDbContext dbContext, IMapper mapper)
+        {
+            _mapper = mapper;
+            _dbContext = dbContext;
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Equipment>>> GetEquipmentList(string? query = null)
         {

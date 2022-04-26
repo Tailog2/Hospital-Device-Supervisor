@@ -4,7 +4,6 @@ namespace HospitalDeviceSupervisor.Dtos;
 
 public class BuildingDto
 {
-    [Key]
     public int Id { get; set; }
 
     public int BuildingNumber { get; set; }
