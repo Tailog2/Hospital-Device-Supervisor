@@ -8,5 +8,5 @@ public class RoomDto
     public int Id { get; set; }
 
     [StringLength(50)] 
-    public string RoomName { get; set; } = null!;
+    public string Name { get; set; } = null!;
 }
