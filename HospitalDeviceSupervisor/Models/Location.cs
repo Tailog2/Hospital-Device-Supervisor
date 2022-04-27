@@ -8,9 +8,9 @@ public class Location
 
     public Building Building { get; set; } = null!;
 
-    public IEnumerable<Room> Rooms { get; set; } = null!;
+    public Room Room { get; set; } = null!;
 
-    public IEnumerable<Department> Department { get; set; } = null!;
+    public IEnumerable<Department> Departments { get; set; } = null!;
 
     public IEnumerable<Equipment>? Equipments { get; set; }
 }

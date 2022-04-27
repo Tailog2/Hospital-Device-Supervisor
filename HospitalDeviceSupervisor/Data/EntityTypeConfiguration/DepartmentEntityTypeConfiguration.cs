@@ -31,7 +31,7 @@ namespace HospitalDeviceSupervisor.Data.EntityTypeConfiguration
 
             modelBuilder
                 .HasMany(d => d.DepartmentLocations)
-                .WithMany(l => l.Department);
+                .WithMany(l => l.Departments);
 
             modelBuilder
                 .HasMany(d => d.Workers)

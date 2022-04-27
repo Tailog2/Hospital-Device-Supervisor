@@ -4,6 +4,7 @@ using HospitalDeviceSupervisor.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalDeviceSupervisor.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220427164334_ChangeRelationshipsBetweenLocationsAndRoomsTablesToOneToMany")]
+    partial class ChangeRelationshipsBetweenLocationsAndRoomsTablesToOneToMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,15 +26,15 @@ namespace HospitalDeviceSupervisor.Migrations
 
             modelBuilder.Entity("DepartmentLocation", b =>
                 {
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<int>("DepartmentLocationsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DepartmentsId")
-                        .HasColumnType("int");
+                    b.HasKey("DepartmentId", "DepartmentLocationsId");
 
-                    b.HasKey("DepartmentLocationsId", "DepartmentsId");
-
-                    b.HasIndex("DepartmentsId");
+                    b.HasIndex("DepartmentLocationsId");
 
                     b.ToTable("DepartmentLocation");
                 });
@@ -227,14 +229,14 @@ namespace HospitalDeviceSupervisor.Migrations
                     b.Property<int>("BuildingId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RoomId")
+                    b.Property<int>("RoomsId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BuildingId");
 
-                    b.HasIndex("RoomId");
+                    b.HasIndex("RoomsId");
 
                     b.ToTable("Locations");
                 });
@@ -394,15 +396,15 @@ namespace HospitalDeviceSupervisor.Migrations
 
             modelBuilder.Entity("DepartmentLocation", b =>
                 {
-                    b.HasOne("HospitalDeviceSupervisor.Models.Location", null)
+                    b.HasOne("HospitalDeviceSupervisor.Models.Department", null)
                         .WithMany()
-                        .HasForeignKey("DepartmentLocationsId")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HospitalDeviceSupervisor.Models.Department", null)
+                    b.HasOne("HospitalDeviceSupervisor.Models.Location", null)
                         .WithMany()
-                        .HasForeignKey("DepartmentsId")
+                        .HasForeignKey("DepartmentLocationsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -503,15 +505,15 @@ namespace HospitalDeviceSupervisor.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HospitalDeviceSupervisor.Models.Room", "Room")
+                    b.HasOne("HospitalDeviceSupervisor.Models.Room", "Rooms")
                         .WithMany("Locations")
-                        .HasForeignKey("RoomId")
+                        .HasForeignKey("RoomsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Building");
 
-                    b.Navigation("Room");
+                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("HospitalDeviceSupervisor.Models.Person", b =>

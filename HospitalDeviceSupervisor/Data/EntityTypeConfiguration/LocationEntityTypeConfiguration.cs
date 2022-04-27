@@ -13,11 +13,10 @@ public class LocationEntityTypeConfiguration : IEntityTypeConfiguration<Location
 
         modelBuilder
             .HasOne(l => l.Building)
-            .WithMany(b => b.Locations)
-            .OnDelete(DeleteBehavior.NoAction);
+            .WithMany(b => b.Locations);
 
         modelBuilder
-            .HasMany(l => l.Rooms)
-            .WithMany(r => r.Locations);
+            .HasOne(l => l.Building)
+            .WithMany(b => b.Locations);
     }
 }
