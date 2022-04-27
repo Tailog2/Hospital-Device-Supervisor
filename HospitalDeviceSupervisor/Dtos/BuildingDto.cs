@@ -6,8 +6,8 @@ public class BuildingDto
 {
     public int Id { get; set; }
 
-    public int BuildingNumber { get; set; }
+    public int Number { get; set; }
 
     [StringLength(50)]
-    public string? BuildingName { get; set; }
+    public string? Name { get; set; }
 }

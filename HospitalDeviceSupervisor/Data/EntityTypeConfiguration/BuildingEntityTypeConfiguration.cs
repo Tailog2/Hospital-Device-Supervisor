@@ -10,6 +10,6 @@ public class BuildingEntityTypeConfiguration : IEntityTypeConfiguration<Building
     {
         modelBuilder.HasKey(b => b.Id);
 
-        modelBuilder.Property(b => b.BuildingName).HasMaxLength(50);
+        modelBuilder.Property(b => b.Name).HasMaxLength(50);
     }
 }

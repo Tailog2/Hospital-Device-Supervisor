@@ -4,7 +4,9 @@ public class Building
 {
     public int Id { get; set; }
 
-    public string BuildingName { get; set; } = null!;
+    public string Number { get; set; } = null!;
+
+    public string? Name { get; set; }
 
     public IEnumerable<Location> Locations { get; set; } = null!;
 }
