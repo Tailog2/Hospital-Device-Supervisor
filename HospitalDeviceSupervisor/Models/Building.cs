@@ -4,7 +4,7 @@ public class Building
 {
     public int Id { get; set; }
 
-    public string Number { get; set; } = null!;
+    public int Number { get; set; }
 
     public string? Name { get; set; }
 
